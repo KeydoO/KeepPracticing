@@ -29,3 +29,26 @@ class Solution:
             else:
                 res.append(node.val)
         return res
+
+
+Solution Two: Recursive
+Define a method and recursively call it
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+        def Traversal(subroot, result):
+            if not subroot:
+                return
+            
+            Traversal(subroot.left, result)
+            result.append(subroot.val)
+            Traversal(subroot.right, result)
+            
+        result = []
+        Traversal(root, result)
+        return result
