@@ -1,0 +1,37 @@
+Solution One:
+1. Initialization:
+   If root  is empty, then return []
+   Set a current_queue for current level, and enqueue root
+2. Traverse each node in queue for its left child and right child
+3. Enqueue left child and right child to child_queue
+4. Update current_queue to child_queue and start next round
+
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        # step 1
+        if not root:
+            return []
+        cur_q = [root]
+        result = []
+        
+        # step 2
+        while cur_q:
+            result.append([node.val for node in cur_q])
+            child_q = []
+            for node in cur_q:
+                if node.left:
+                    # step 3
+                    child_q.append(node.left)
+                if node.right:
+                    # step 3
+                    child_q.append(node.right)
+            cur_q = child_q
+        return result
