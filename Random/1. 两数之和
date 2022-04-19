@@ -1,0 +1,23 @@
+Solution One: Brute Force
+Dual loop
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        res = []
+        i, j = 0, 1
+        for i in range(len(nums)-1):
+            for j in range(i+1,len(nums)):
+                if nums[i] + nums[j] == target:
+                    res = [i, j]
+                    return res
+                    
+                    
+Solution Two: Hash table
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        table = dict()
+        for i, num in enumerate(nums):
+            if (d := target - num) in table:
+                return [table[d], i]
+            table[num] = i
