@@ -1,0 +1,35 @@
+Solution One:
+Append nums2 to nums1 (valid numbers, not 0's) then sort the whole array
+
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        for i in range(m, m+n):
+            nums1[i] = nums2[i-m]
+        nums1.sort()
+        
+        
+Solution Two: Double pointers
+From tail to head to modify the value of elements in nums1
+
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        tail, tail1, tail2 = m + n - 1, m - 1, n - 1
+        while tail1 >= 0 and tail2 >= 0:
+            if nums1[tail1] >= nums2[tail2]:
+                nums1[tail] = nums1[tail1]
+                tail1 -= 1
+            else:
+                nums1[tail] = nums2[tail2]
+                tail2 -= 1
+            tail -= 1
+        
+        while tail2 >= 0:
+            nums1[tail] = nums2[tail2]
+            tail2 -= 1
+            tail -=1
