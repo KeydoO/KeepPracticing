@@ -1,0 +1,28 @@
+Solution One:
+Recall that in Exercise 102, we traversed each node  of a BST by level
+Now we can first do that and take last node's value of each level to get result
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def rightSideView(self, root: TreeNode) -> List[int]:
+        if not root:
+            return []
+        result = []
+        cur_q = [root]
+
+        while cur_q:
+            # The only difference with Exercise 102, we only take the last node of each level
+            result.append([node.val for node in cur_q][-1])
+            child_q = []
+            for node in cur_q:
+                if node.left:
+                    child_q.append(node.left)
+                if node.right:
+                    child_q.append(node.right)
+            cur_q = child_q
+        return result
