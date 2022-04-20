@@ -1,2 +1,2 @@
 # MyLeetCode
-LeetCode practice
+LeetCode exercise solution written in Python.
