@@ -1,2 +1,3 @@
 # MyLeetCode
-LeetCode exercise solution written in Python.
+刷题笔记  
+刷就完了
