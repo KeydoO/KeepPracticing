@@ -1,5 +1,5 @@
 [BM2. 反转指定区间链表](https://www.nowcoder.com/practice/b58434e200a648c589ca2063f1faf58c?tpId=295&tqId=654&ru=%2Fpractice%2F75e878df47f24fdc9dc3e400ec6058ca&qru=%2Fta%2Fformat-top101%2Fquestion-ranking&sourceUrl=%2Fexam%2Foj)
-### 解法一（时间复杂度：O((n)）:
+### 解法一（时间复杂度：O(n)）:
 #### 思路分析：
 1. 与BM1思路类似，双指针分别指向当前节点和当前节点的前置节点
 2. 首先要找到起始位置m，然后开始在此位置直到n结束开始进行翻转
